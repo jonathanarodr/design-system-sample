@@ -1,15 +1,25 @@
 [versions]
-agp = "8.2.2"
+
+# kotlin
 kotlin = "1.9.25"
+
+# android
+agp = "8.2.2"
 coreKtx = "1.9.0"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 lifecycleViewModelCompose = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.12.01"
-androidx-compose-compiler = "1.5.15"
+composeCompiler = "1.5.15"
+
+# lint
+detekt = "1.23.6"
+detektCompose = "0.4.22"
+
+# test
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +46,11 @@ androidx-compose-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-
 androidx-compose-test-junit4-android = { group = "androidx.compose.ui", name = "ui-test-junit4-android" }
 androidx-compose-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
+# lint
+detekt-formatting  = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+detekt-compose  = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "detektCompose" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

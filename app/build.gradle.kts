@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -40,7 +41,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 }
 
@@ -53,6 +54,21 @@ fun Project.stabilityConfiguration() = listOf(
     "-P",
     "plugin:androidx.compose.compiler.plugins.kotlin:stabilityConfigurationPath=${project.rootDir.absolutePath}/compose_compiler_config.conf",
 )
+
+detekt {
+    toolVersion = libs.versions.detekt.get()
+
+    allRules = false
+    parallel = true
+    ignoredBuildTypes = listOf("release")
+    source.setFrom("src/main/java", "src/main/kotlin")
+    config.setFrom(files("${project.rootDir}/tools/linters/detekt-rules.yml"))
+
+    dependencies {
+        detektPlugins(libs.detekt.formatting)
+        detektPlugins(libs.detekt.compose)
+    }
+}
 
 dependencies {
     implementation(libs.androidx.core.ktx)
