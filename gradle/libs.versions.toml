@@ -11,6 +11,8 @@ lifecycleViewModelCompose = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.12.01"
 composeCompiler = "1.5.15"
+appcompat = "1.7.0"
+material3 = "1.12.0"
 
 # lint
 detekt = "1.23.6"
@@ -45,6 +47,8 @@ androidx-compose-animation-graphics = { group = "androidx.compose.animation", na
 androidx-compose-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-test-junit4-android = { group = "androidx.compose.ui", name = "ui-test-junit4-android" }
 androidx-compose-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+google-material3 = { group = "com.google.android.material", name = "material", version.ref = "material3" }
 
 # lint
 detekt-formatting  = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }

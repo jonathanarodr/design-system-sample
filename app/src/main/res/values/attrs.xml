@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SampleCard">
+        <attr name="title" format="string" />
+        <attr name="tagLabel" format="string" />
+        <attr name="isChecked" format="boolean" />
+        <attr name="indicator" format="enum">
+            <enum name="tag" value="0" />
+            <enum name="checkbox" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

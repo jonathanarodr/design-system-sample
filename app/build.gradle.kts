@@ -89,6 +89,9 @@ dependencies {
     implementation(libs.androidx.compose.tooling)
     implementation(libs.androidx.compose.tooling.preview)
 
+    implementation(libs.google.material3)
+    implementation(libs.androidx.appcompat)
+
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.junit)
