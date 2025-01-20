@@ -1,4 +1,4 @@
-package br.com.jonathanarodr.designsystem.ui.theme
+package br.com.jonathanarodr.designsystem
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -23,7 +23,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun DesignsystemTheme(
+fun CustomTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

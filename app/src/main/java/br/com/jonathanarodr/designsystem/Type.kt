@@ -1,4 +1,4 @@
-package br.com.jonathanarodr.designsystem.ui.theme
+package br.com.jonathanarodr.designsystem
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
