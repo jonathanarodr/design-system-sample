@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- v1 -->
     <declare-styleable name="SampleCard">
         <attr name="title" format="string" />
         <attr name="tagLabel" format="string" />
@@ -8,6 +9,8 @@
         <attr name="indicator" format="enum">
             <enum name="tag" value="0" />
             <enum name="checkbox" value="1" />
+            <!-- supported in v2 -->
+            <enum name="icon" value="2" />
         </attr>
     </declare-styleable>
 

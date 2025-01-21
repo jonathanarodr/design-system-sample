@@ -38,6 +38,7 @@ android {
         freeCompilerArgs += strongSkippingConfiguration() + stabilityConfiguration()
     }
     buildFeatures {
+        viewBinding = true
         compose = true
     }
     composeOptions {

@@ -6,22 +6,44 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <br.com.jonathanarodr.designsystem.view.SampleCardView
-        android:id="@+id/sample_card_first"
+    <!-- criar tooling de preview do componente dinamico -->
+    <br.com.jonathanarodr.designsystem.component.SampleCardView
+        android:id="@+id/sample_card_dynamic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:indicator="tag"
         app:tagLabel="v1"
         app:title="Lorem ipsum indor" />
 
-    <br.com.jonathanarodr.designsystem.view.SampleCardView
+    <br.com.jonathanarodr.designsystem.component.SampleCardViewV1
+        android:id="@+id/sample_card_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:indicator="tag"
+        app:tagLabel="v1"
+        app:title="Lorem ipsum indor" />
+
+    <br.com.jonathanarodr.designsystem.component.SampleCardViewV1
         android:id="@+id/sample_card_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:indicator="checkbox"
         app:isChecked="true"
         app:title="Mussum ipsum indor" />
+
+    <br.com.jonathanarodr.designsystem.component.SampleCardViewV2
+        android:id="@+id/sample_card_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardUseCompatPadding="true"
+        app:indicator="icon"
+        app:title="Lala ipsum indor" />
 
 </LinearLayout>
