@@ -72,6 +72,7 @@ detekt {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.annotation)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.compose)
     implementation(libs.androidx.activity.compose)
@@ -88,6 +89,8 @@ dependencies {
     implementation(libs.androidx.compose.animation.graphics)
     implementation(libs.androidx.compose.tooling)
     implementation(libs.androidx.compose.tooling.preview)
+    implementation(libs.androidx.compose.icons.core)
+    implementation(libs.androidx.compose.icons.extended)
 
     testImplementation(libs.junit)
 
