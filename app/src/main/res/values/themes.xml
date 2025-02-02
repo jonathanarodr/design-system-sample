@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.DesignSystem" parent="Theme.Material3.Light.NoActionBar" />
+    <!-- app base theme -->
+    <style name="Theme.DesignSystem" parent="Theme.Material3.Light.NoActionBar">
+        <item name="customBackgroundColor" type="color">@color/gray</item>
+        <item name="customOnBackgroundColor" type="color">@color/black</item>
+        <item name="customPrimaryColor" type="color">@color/black</item>
+        <item name="customOnPrimaryColor" type="color">@color/white</item>
+    </style>
+
+    <style name="Widget.DesignSystem" parent="android:Widget" />
+
+    <!-- global attrs -->
+    <attr name="customThemeOverlay" format="reference" />
+    <attr name="customBackgroundColor" format="color" />
+    <attr name="customOnBackgroundColor" format="color" />
+    <attr name="customPrimaryColor" format="color" />
+    <attr name="customOnPrimaryColor" format="color" />
 </resources>

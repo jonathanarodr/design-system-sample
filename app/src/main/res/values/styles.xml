@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+
+    <style name="Widget.DesignSystem.Card">
+        <item name="cardBackgroundColor">?attr/customBackgroundColor</item>
+        <item name="customThemeOverlay">@style/Widget.DesignSystem.Card.Inverse</item>
+    </style>
+
+    <style name="Widget.DesignSystem.Card.Inverse" parent="">
+        <item name="cardBackgroundColor">?attr/customOnBackgroundColor</item>
+    </style>
+
+    <style name="Widget.DesignSystem.Tag">
+        <item name="android:background">?attr/customOnBackgroundColor</item>
+        <item name="android:textColor">?attr/customOnPrimaryColor</item>
+        <item name="customThemeOverlay">@style/Widget.DesignSystem.Tag.Inverse</item>
+    </style>
+
+    <style name="Widget.DesignSystem.Tag.Inverse" parent="">
+        <item name="android:background">?attr/customOnPrimaryColor</item>
+        <item name="android:textColor">?attr/customOnBackgroundColor</item>
+    </style>
+</resources>

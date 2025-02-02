@@ -10,13 +10,14 @@ import androidx.core.content.withStyledAttributes
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import br.com.jonathanarodr.designsystem.R
+import br.com.jonathanarodr.designsystem.base.ComponentThemeOverlay
 import com.google.android.material.card.MaterialCardView
 
 class SampleCardViewV2 @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : MaterialCardView(context, attrs, defStyleAttr) {
+    defStyleAttr: Int = 0,
+) : MaterialCardView(ComponentThemeOverlay.wrap(context, attrs, defStyleAttr), attrs, defStyleAttr) {
 
     private val titleView: TextView
     private val labelView: TextView

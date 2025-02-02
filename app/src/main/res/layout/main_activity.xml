@@ -43,7 +43,20 @@
         android:layout_marginTop="16dp"
         app:cardCornerRadius="12dp"
         app:cardUseCompatPadding="true"
-        app:indicator="icon"
+        app:indicator="tag"
+        app:tagLabel="v2"
+        app:title="Lala ipsum indor" />
+
+    <br.com.jonathanarodr.designsystem.component.SampleCardViewV2
+        android:id="@+id/sample_card_fourth"
+        android:theme="@style/Widget.DesignSystem.Card.Inverse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardUseCompatPadding="true"
+        app:indicator="tag"
+        app:tagLabel="v2"
         app:title="Lala ipsum indor" />
 
 </LinearLayout>
