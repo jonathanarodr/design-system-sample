@@ -1,9 +1,10 @@
-package br.com.jonathanarodr.designsystem
+package br.com.jonathanarodr.designsystem.core.theme
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.mutableStateOf
 
+// Manager app theme (i.e. Gold, Epic, Pj)
 enum class Theme {
     Light,
     Dark,
