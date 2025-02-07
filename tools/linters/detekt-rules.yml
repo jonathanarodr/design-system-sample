@@ -1064,6 +1064,7 @@ Compose:
     active: false
   CompositionLocalAllowlist:
     active: true
+    allowedCompositionLocals: "LocalDesignSystemTheme,LocalColorScheme,LocalTypography"
   CompositionLocalNaming:
     active: true
   ContentEmitterReturningValues:
