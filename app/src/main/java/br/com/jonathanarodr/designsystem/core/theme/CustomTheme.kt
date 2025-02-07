@@ -6,6 +6,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import br.com.jonathanarodr.designsystem.core.tokens.ColorScheme
@@ -46,8 +47,11 @@ fun CustomTheme(
         LocalDesignSystemTheme provides themeState,
         LocalColorScheme provides colorScheme,
         LocalTypography provides TypographyDefaults,
-        content = content
-    )
+    ) {
+        ProvideComponentStyle {
+            content()
+        }
+    }
 }
 
 object CustomTheme {
@@ -66,4 +70,24 @@ object CustomTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalTypography.current
+
+    val style: ComponentStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalComponentStyle.current
+}
+
+val LocalComponentStyle = compositionLocalOf {
+    ComponentStyle.Default
+}
+
+@Composable
+internal fun ProvideComponentStyle(
+    componentStyle: ComponentStyle = ComponentStyle.Default,
+    content: @Composable () -> Unit,
+) {
+    CompositionLocalProvider(
+        LocalComponentStyle provides componentStyle,
+        content = content,
+    )
 }

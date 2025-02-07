@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.consumeWindowInsets
@@ -18,29 +15,29 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.ArrowForward
 import androidx.compose.material.icons.rounded.DarkMode
 import androidx.compose.material.icons.rounded.LightMode
-import androidx.compose.material3.Button
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MultiChoiceSegmentedButtonRow
-import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
-import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import br.com.jonathanarodr.designsystem.components.card.SampleCardComponent
+import br.com.jonathanarodr.designsystem.components.card.SampleCardComponentDefaults
+import br.com.jonathanarodr.designsystem.core.theme.ComponentStyle
+import br.com.jonathanarodr.designsystem.core.theme.CustomTheme
+import br.com.jonathanarodr.designsystem.core.theme.DesignSystemTheme
+import br.com.jonathanarodr.designsystem.core.theme.LocalDesignSystemTheme
+import br.com.jonathanarodr.designsystem.core.theme.ProvideComponentStyle
+import br.com.jonathanarodr.designsystem.core.theme.Theme
+import br.com.jonathanarodr.designsystem.core.theme.isDarkMode
+import br.com.jonathanarodr.designsystem.core.tokens.SpacingTokens
 
 class MainActivity : ComponentActivity() {
 
@@ -49,7 +46,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CustomTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
                     Surface(
                         Modifier
                             .fillMaxSize()
@@ -57,7 +56,9 @@ class MainActivity : ComponentActivity() {
                             .consumeWindowInsets(innerPadding)
                     ) {
                         MainScreen(
-                            modifier = Modifier.padding(SpacingScheme.ScreenSpacing)
+                            modifier = Modifier
+                                .background(CustomTheme.colorScheme.background)
+                                .padding(SpacingTokens.Level4)
                         )
                     }
                 }
@@ -118,60 +119,6 @@ fun DarkModeButton(
 }
 
 @Composable
-fun SampleCard(
-    @DrawableRes illustration: Int,
-    title: String,
-    description: String,
-    modifier: Modifier = Modifier,
-) {
-    OutlinedCard(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-        ),
-        border = BorderStroke(1.dp, Color.Gray),
-        modifier = modifier.fillMaxWidth(),
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-        ) {
-            Image(
-                painter = painterResource(id = illustration),
-                contentDescription = null,
-                modifier = Modifier.size(80.dp),
-            )
-            Text(
-                text = title,
-                fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(Modifier.height(8.dp))
-            Text(
-                text = description,
-                fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
-            )
-            Spacer(Modifier.height(8.dp))
-            Button(
-                onClick = { },
-                shape = ShapeDefaults.ExtraLarge,
-            ) {
-                Text(
-                    text = "Label",
-                )
-                Icon(
-                    imageVector = Icons.AutoMirrored.Rounded.ArrowForward,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .padding(start = 8.dp)
-                        .size(16.dp)
-                )
-            }
-        }
-    }
-}
-
-@Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
 ) {
@@ -182,23 +129,40 @@ fun MainScreen(
             DarkModeButton()
         }
         item {
-            Spacer(Modifier.height(80.dp))
+            Spacer(Modifier.height(SpacingTokens.Level5))
         }
         item {
-            SampleCard(
+            SampleCardComponent(
                 illustration = R.drawable.kodee_hello,
                 title = "Kodee Hello",
-                description = "Mussum Ipsum, cacilds vidis litro abertis."
+                description = "Mussum Ipsum, cacilds vidis litro abertis.",
+                label = "Let's go"
             )
         }
         item {
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(SpacingTokens.Level4))
         }
         item {
-            SampleCard(
-                illustration = R.drawable.kodee_wink,
-                title = "Kodee Wink",
-                description = "Lorem Ipsum is simply dummy text of the printing.",
+            // TODO strategy may should be avoid
+            ProvideComponentStyle(ComponentStyle.HighLight) {
+                SampleCardComponent(
+                    style = SampleCardComponentDefaults.HighLight,
+                    illustration = R.drawable.kodee_wink,
+                    title = "Kodee Wink",
+                    description = "Lorem Ipsum is simply dummy text of the printing.",
+                    label = "Let's go",
+                )
+            }
+        }
+        item {
+            Spacer(Modifier.height(SpacingTokens.Level4))
+        }
+        item {
+            SampleCardComponent(
+                illustration = R.drawable.kodee_jumping,
+                title = "Kodee Jumping",
+                description = "Mussum Ipsum, cacilds vidis litro abertis.",
+                label = "Let's go"
             )
         }
     }
@@ -215,7 +179,7 @@ private fun MainScreenPreview() {
         MainScreen(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(SpacingScheme.ContentSpacing)
+                .padding(SpacingTokens.Level4)
         )
     }
 }

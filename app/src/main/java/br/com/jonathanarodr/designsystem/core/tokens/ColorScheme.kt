@@ -20,43 +20,49 @@ internal object PaletteTokens {
     val White: Color = Color(0xFFFFFFFF)
     val Black: Color = Color(0xFF000000)
 
-    val Purple80: Color = Color(0xFFD0BCFF)
-    val PurpleGrey80: Color = Color(0xFFCCC2DC)
-    val Pink80: Color = Color(0xFFEFB8C8)
+    val Purple: Color = Color(0xFF7F52FF)
 
-    val Purple40: Color = Color(0xFF8f00e7)
-    val PurpleGrey40: Color = Color(0xFF625b71)
-    val Pink40: Color = Color(0xFF7D5260)
+    val Blue80: Color = Color(0xFFaac7ff)
+    val Blue40: Color = Color(0xFF415f91)
+
+    val Gray801: Color = Color(0xFFededf4)
+    val Gray802: Color = Color(0xFFf3f3fa)
+    val Gray803: Color = Color(0xFFf9f9ff)
+
+    val Gray401: Color = Color(0xFF0c0e13)
+    val Gray402: Color = Color(0xFF111318)
+    val Gray403: Color = Color(0xFF1d2024)
+
 }
 
 internal object LightColorTokens {
 
-    val Primary = PaletteTokens.Purple80
+    val Primary = PaletteTokens.Blue80
 
     val Background = PaletteTokens.White
 
-    val OnBackground = PaletteTokens.PurpleGrey80
+    val OnBackground = PaletteTokens.Gray801
 
-    val Surface = PaletteTokens.Pink80
+    val Surface = PaletteTokens.Gray802
 
-    val OnSurface = PaletteTokens.Pink80
+    val OnSurface = PaletteTokens.Gray803
 
-    val SurfaceBright = PaletteTokens.Purple80
+    val SurfaceBright = PaletteTokens.Gray401
 }
 
 internal object DarkColorTokens {
 
-    val Primary = PaletteTokens.Purple40
+    val Primary = PaletteTokens.Blue40
 
     val Background = PaletteTokens.Black
 
-    val OnBackground = PaletteTokens.PurpleGrey40
+    val OnBackground = PaletteTokens.Gray401
 
-    val Surface = PaletteTokens.Pink40
+    val Surface = PaletteTokens.Gray402
 
-    val OnSurface = PaletteTokens.Pink40
+    val OnSurface = PaletteTokens.Gray403
 
-    val SurfaceBright = PaletteTokens.Purple40
+    val SurfaceBright = PaletteTokens.Gray801
 }
 
 // i.e. Gold theme
