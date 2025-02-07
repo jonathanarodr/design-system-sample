@@ -28,16 +28,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import br.com.jonathanarodr.designsystem.components.card.SampleCardComponent
-import br.com.jonathanarodr.designsystem.components.card.SampleCardComponentDefaults
-import br.com.jonathanarodr.designsystem.core.theme.ComponentStyle
-import br.com.jonathanarodr.designsystem.core.theme.CustomTheme
-import br.com.jonathanarodr.designsystem.core.theme.DesignSystemTheme
-import br.com.jonathanarodr.designsystem.core.theme.LocalDesignSystemTheme
-import br.com.jonathanarodr.designsystem.core.theme.ProvideComponentStyle
-import br.com.jonathanarodr.designsystem.core.theme.Theme
-import br.com.jonathanarodr.designsystem.core.theme.isDarkMode
-import br.com.jonathanarodr.designsystem.core.tokens.SpacingTokens
+import br.com.jonathanarodr.designsystem.compose.core.theme.CustomTheme
+import br.com.jonathanarodr.designsystem.compose.core.theme.DesignSystemTheme
+import br.com.jonathanarodr.designsystem.compose.core.theme.LocalDesignSystemTheme
+import br.com.jonathanarodr.designsystem.compose.core.theme.Theme
+import br.com.jonathanarodr.designsystem.compose.core.theme.isDarkMode
+import br.com.jonathanarodr.designsystem.compose.core.tokens.SpacingTokens
+import br.com.jonathanarodr.designsystem.compose.foundation.components.card.SampleCardComponent
+import br.com.jonathanarodr.designsystem.compose.foundation.components.card.SampleCardComponentDefaults
 
 class MainActivity : ComponentActivity() {
 
@@ -143,16 +141,13 @@ fun MainScreen(
             Spacer(Modifier.height(SpacingTokens.Level4))
         }
         item {
-            // TODO strategy may should be avoid
-            ProvideComponentStyle(ComponentStyle.HighLight) {
-                SampleCardComponent(
-                    style = SampleCardComponentDefaults.HighLight,
-                    illustration = R.drawable.kodee_wink,
-                    title = "Kodee Wink",
-                    description = "Lorem Ipsum is simply dummy text of the printing.",
-                    label = "Let's go",
-                )
-            }
+            SampleCardComponent(
+                style = SampleCardComponentDefaults.highlightStyle(),
+                illustration = R.drawable.kodee_wink,
+                title = "Kodee Wink",
+                description = "Lorem Ipsum is simply dummy text of the printing.",
+                label = "Let's go",
+            )
         }
         item {
             Spacer(Modifier.height(SpacingTokens.Level4))

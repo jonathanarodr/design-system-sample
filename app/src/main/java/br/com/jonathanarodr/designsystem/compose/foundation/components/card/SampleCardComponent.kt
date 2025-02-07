@@ -1,6 +1,7 @@
-package br.com.jonathanarodr.designsystem.components.card
+package br.com.jonathanarodr.designsystem.compose.foundation.components.card
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,35 +20,34 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.jonathanarodr.designsystem.R
-import br.com.jonathanarodr.designsystem.components.avatar.AvatarComponent2
-import br.com.jonathanarodr.designsystem.core.theme.CustomTheme
-import br.com.jonathanarodr.designsystem.core.tokens.SpacingTokens
+import br.com.jonathanarodr.designsystem.compose.core.theme.CustomTheme
+import br.com.jonathanarodr.designsystem.compose.core.tokens.SpacingTokens
+import br.com.jonathanarodr.designsystem.compose.foundation.components.avatar.AvatarComponent
 
 @Composable
 fun SampleCardComponent(
     modifier: Modifier = Modifier,
-    style: SampleCardComponentDefaults = SampleCardComponentDefaults.Default,
+    style: SampleCardComponentStyle = SampleCardComponentDefaults.defaultStyle(),
     @DrawableRes illustration: Int,
     title: String,
     description: String,
     label: String,
 ) {
-
     OutlinedCard(
         modifier = modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = style.cardContainerColor,
+            containerColor = style.cardColor,
         ),
-        border = style.cardBorder,
+        border = BorderStroke(style.cardBorderWidth, style.cardBorderColor),
     ) {
         Column(
             modifier = Modifier
                 .padding(SpacingTokens.Level3)
                 .fillMaxWidth()
         ) {
-            AvatarComponent2(
+            AvatarComponent(
                 style = style.avatarStyle,
-                illustration = illustration
+                illustration = illustration,
             )
             Spacer(Modifier.height(SpacingTokens.Level2))
             Text(
@@ -94,12 +94,23 @@ fun SampleCardComponent(
 @Composable
 private fun SampleCardComponentPreview() {
     CustomTheme {
-        SampleCardComponent(
-            modifier = Modifier.padding(SpacingTokens.Level2),
-            illustration = R.drawable.kodee_hello,
-            title = "Kodee Hello",
-            description = "Mussum Ipsum, cacilds vidis litro abertis.",
-            label = "Let's go",
-        )
+        Column {
+            SampleCardComponent(
+                modifier = Modifier.padding(SpacingTokens.Level2),
+                style = SampleCardComponentDefaults.defaultStyle(),
+                illustration = R.drawable.kodee_hello,
+                title = "Kodee Hello",
+                description = "Mussum Ipsum, cacilds vidis litro abertis.",
+                label = "Let's go",
+            )
+            SampleCardComponent(
+                modifier = Modifier.padding(SpacingTokens.Level2),
+                style = SampleCardComponentDefaults.highlightStyle(),
+                illustration = R.drawable.kodee_wink,
+                title = "Kodee Wink",
+                description = "Mussum Ipsum, cacilds vidis litro abertis.",
+                label = "Let's go",
+            )
+        }
     }
 }

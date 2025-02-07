@@ -1,4 +1,4 @@
-package br.com.jonathanarodr.designsystem.core.theme
+package br.com.jonathanarodr.designsystem.compose.core.theme
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf

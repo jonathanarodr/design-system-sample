@@ -1,4 +1,4 @@
-package br.com.jonathanarodr.designsystem.core.tokens
+package br.com.jonathanarodr.designsystem.compose.core.tokens
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
